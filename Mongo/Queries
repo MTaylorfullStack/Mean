@@ -1,0 +1,24 @@
+use my_first_db
+db.createCollection('students')
+
+> db.students.insert({name: 'Drew', home_state: 'MA', lucky_number: 3, birthday: {month: 1, day: 7, year: 1992}})
+> db.students.insert({name: 'Jocelyn', home_state: 'SC', lucky_number: 7, birthday: {month: 3, day: 5, year: 1990}})
+> db.students.insert({name: 'Jake', home_state: 'CO', lucky_number: 99, birthday: {month: 5, day: 12, year: 1994}})
+> db.students.insert({name: 'user_4', home_state: 'NY', lucky_number: 1, birthday: {month: 2, day: 2, year: 1970}})
+> db.students.insert({name: 'user_5', home_state: 'PA', lucky_number: 250, birthday: {month: 12, day: 25, year: 1973}})
+
+> db.students.find()
+
+> db.students.find({$or: [{home_state:'MA'}, {home_state:'NY'}]})
+
+db.students.find({lucky_number: {$gt: 3}})
+
+db.students.find({lucky_number: {$lte: 10}})
+
+db.students.find({$and:[{lucky_number: {$gte: 1}}, {lucky_number: {$lte: 9}}]})
+
+db.students.updateMany({}, {$addToSet: {interests: {$each: ['coding', 'brunch', 'MongoDB']}}})
+
+db.students.update({name: "user_5"}, {$push:{interests:'taxes'}})
+
+db.students.update({name: "user_5"}, {$pop:{interests:1}})

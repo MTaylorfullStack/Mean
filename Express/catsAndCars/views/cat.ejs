@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h1>Details Page for <%= cat.name %></h1>
+        <img src="http://localhost:8000/<%= cat.name %>.jpg">
+        <h4>Favorite Food: <%= cat.food %></h4>
+        <h4>Sleeping spots: </h4>
+        <% for (var spot of cat.sleep) { %>
+            <h4><%= spot %></h4>
+        <% } %>
+    </body>
+</html>

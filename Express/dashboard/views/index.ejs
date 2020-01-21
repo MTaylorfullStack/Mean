@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cat Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Cat Dashboard!</h1>
+    <% for(var cat of cats) { %>
+    <p><a href="/cats/<%= cat.id%>"><%= cat.name %></a></p>
+    <% } %>
+    <a href="/cats/new">Add a new Cat!</a>
+</body>
+</html>

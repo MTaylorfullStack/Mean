@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= cat.name %></title>
+</head>
+<body>
+    <h1><%= cat.name %></h1>
+    <p>Age: <%= cat.age %></p>
+    <p>Breed: <%= cat.breed %></p>
+    <p>Location: <%= cat.location %></p>
+    <% } %>
+    <a href="/cats/edit/id">Edit this Cat</a>
+    <a href="/cats/destroy/id">Delete this Cat</a>
+</body>
+</html>

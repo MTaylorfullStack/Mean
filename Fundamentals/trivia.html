@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Trivia Night</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row bg-secondary">
+            <div class="col-3">
+                <p class="align-bottom"><a href="">New Questions</a></p>
+            </div>
+            <div class="col-3">
+                <h1>Trivia Night</h1>
+            </div>
+            <div class="col-3">
+                <h1>Points: 0</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="cat1"></div>
+            <div class="col" id="cat2"></div>
+            <div class="col" id="cat3"></div>
+        </div>
+    </div>
+
+    <script>
+        var cat1=$('#cat1')
+        var cat2=$('#cat2')
+        var cat3=$('#cat3')
+
+        $.get(`https://opentdb.com/api.php?amount=5&category=${random()}`, function(data){
+            cat1.append(`<h5>${data.results[0].category}</h5>`);
+            let questions=data.results;
+            $.each(questions, function(i, question){
+                //cat1.append(`<p>${question.question}</p>`);
+                cat1.append(`<p class=".p5 border bg-primary">${difficultyToPointValue(question.difficulty)}</p>`)
+            });
+        });
+
+        $.get(`https://opentdb.com/api.php?amount=5&category=${random()}`, function(data){
+            cat2.append(`<h5>${data.results[0].category}</h5>`);
+            let questions=data.results;
+            $.each(questions, function(i, question){
+                //cat2.append(`<p>${question.question}</p>`)
+                cat2.append(`<p class=".p5 border bg-primary">${difficultyToPointValue(question.difficulty)}</p>`)
+            });
+        });
+
+        $.get(`https://opentdb.com/api.php?amount=5&category=${random()}`, function(data){
+            cat3.append(`<h5>${data.results[0].category}</h5>`);
+            let questions=data.results;
+            $.each(questions, function(i, question){
+                //cat3.append(`<p>${question.question}</p>`)
+                cat3.append(`<p class=".p5 border bg-primary">${difficultyToPointValue(question.difficulty)}</p>`)
+            });
+        });
+
+        function random()
+        {
+            return Math.floor(Math.random() * 24 ) + 9;
+        }
+        function difficultyToPointValue(difficulty)
+        {
+            if(difficulty === "easy")
+                return 100;
+            else if(difficulty === "medium")
+                return 200;
+            else
+                return 400;
+        }
+    </script>
+</body>
+</html>

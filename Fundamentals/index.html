@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="handlingGithub.js"></script>
+    <title>Handling Github</title>
+</head>
+<body>
+    <button id="btn">Whats my name on LinkedIn?</button>
+    <script>
+        $("#btn").click(function(){
+            $.get("https://api.github.com/users/drewadorno", displayName)
+
+            function displayName(data)
+            {
+                console.log(data);
+                $("body").append(`<h1>${data.name}</h1>`)
+            }
+        }); 
+    </script>
+</body>
+</html>
+

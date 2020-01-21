@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= cat.name %></title>
+</head>
+<body>
+    <form action="/cats" method="POST">
+        <p>Name: <input type="text" name="name" value="<%= cat.name%>"></p>
+        <p>Age: <input type="text" name="age" value="<%= cat.age%>"></p>
+        <p>Breed: <input type="text" name="breed" value="<%= cat.breed%>"></p>
+        <p>Location: <input type="text" name="location" value="<%= cat.location%>"></p>
+        <button type="submit">Edit this Cat!</button>
+    </form>
+</body>
+</html>
