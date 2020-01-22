@@ -1,8 +1,26 @@
 const mongoose = require('mongoose');
-const TABLESCHEMA = new mongoose.Schema({
-    DATAMEMBER1: String,
-    DATAMEMBER2: String
-   })
-const User = mongoose.model('DBNAME', TABLESCHEMA);
 
-module.exports = {User: User}
+const reviewSchema= new mongoose.Schema
+({
+    rating: Number,
+    comment: String,
+    
+},{ timestamps: true })
+const cakeSchema = new mongoose.Schema
+({
+    cakeName: String,
+    bakerName: String,
+    url: String,
+    reviews: [reviewSchema]
+},{ timestamps: true })
+
+
+const cake = mongoose.model('cake', cakeSchema);
+
+const review = mongoose.model('review', reviewSchema);
+
+
+module.exports = {
+    review: review,
+    cake: cake
+}
