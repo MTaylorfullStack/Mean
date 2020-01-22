@@ -4,3 +4,5 @@ const TABLESCHEMA = new mongoose.Schema({
     DATAMEMBER2: String
    })
 const User = mongoose.model('DBNAME', TABLESCHEMA);
+
+module.exports = {User: User}
