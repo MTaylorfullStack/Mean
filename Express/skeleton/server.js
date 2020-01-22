@@ -5,9 +5,7 @@ const express = require("express"),
     path = require('path');
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname + '/server/views/static')));
-app.set('views', path.join(__dirname + '/server/views'));
-app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, './public/dist/public')));
 
 require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
